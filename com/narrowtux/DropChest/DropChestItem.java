@@ -230,8 +230,9 @@ public class DropChestItem {
 		}
 		World world = block.getWorld();
 		Location loc = block.getLocation();
-		for(int i = 0; i<containerBlock.getInventory().getSize();i++){
-			ItemStack item = containerBlock.getInventory().getItem(i);
+
+                ItemStack[] contents = containerBlock.getInventory().getContents()
+                for(ItemStack item : contents)
 			if(item.getAmount()!=0){
 				world.dropItem(loc, item);
 				containerBlock.getInventory().remove(item);
